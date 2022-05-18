@@ -61,6 +61,9 @@ var testBank = [
 //Functions
 
 var quizStart = function () {
+  startPageEl.setAttribute("class", "hidden");
+  testPageEl.removeAttribute("class", "hidden");
+  renderQ();
   countdown();
 };
 
@@ -79,9 +82,42 @@ var init = function () {
   getScore();
 };
 
-var renderQ = function () {};
+var renderQ = function () {
+  var displayQ = testBank[qIndex];
+  questionEl.textContent = qIndex + 1 + ". " + displayQ.q;
+  firstCBtnEl.textContent = displayQ.c[0];
+  secondCBtnEl.textContent = displayQ.c[1];
+  thirdCBtnEl.textContent = displayQ.c[2];
+  fourthCBtnEl.textContent = displayQ.c[3];
+};
 
-var gameOver = function () {};
+var ansCheck = function (event) {
+  if (event.target.value !== testBank[qIndex].a) {
+    timeLeft -= 20;
+    if (timeLeft < 0) {
+      timeLeft = 0;
+    }
+  } else {
+    score += 5;
+    scoreEl.textContent = "Score: " + score;
+  }
+  if (testBank.length === qIndex + 1) {
+    gameOver();
+    console.log(qIndex);
+  } else {
+    qIndex++;
+    renderQ();
+  }
+
+  console.log(event.target.value);
+
+  var gameOver = function () {
+    clearInterval(timer);
+    scorePageEl.removeAttribute("class", "hidden");
+    testPageEl.setAttribute("class", "hidden");
+    finalScoreEl.textContent = score + " with " + timeLeft + " s remaining!";
+  };
+};
 
 var storeScore = function () {};
 
