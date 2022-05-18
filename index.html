@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test your js knowledge by taking this Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Gruppo"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -17,18 +21,29 @@
     </header>
 
     <main>
+      <section id="modal-container">
+        <div id="modal" class="hidden">
+          <ul id="score-list">
+            <span>High Scores!</span>
+            <span><button id="close-modal">&times;</button></span>
+          </ul>
+        </div>
+      </section>
       <section id="container">
-        <h1>Quiz Game!</h1>
-        <p>Quiz instructions</p>
         <div id="start-page">
+          <h1>Quiz Game!</h1>
+          <p>Quiz instructions</p>
           <button id="startbtn">Click Here to Start the Quiz</button>
         </div>
         <div id="question-page" class="hidden">
           <h3 id="question"></h3>
           <div id="answer">
             <button id="a1" value="a1"></button>
+            <br />
             <button id="a2" value="a2"></button>
+            <br />
             <button id="a3" value="a3"></button>
+            <br />
             <button id="a4" value="a4"></button>
           </div>
         </div>
@@ -39,11 +54,6 @@
           <br />
           <br />
           <button id="play-again-btn">Play Again</button>
-        </div>
-
-        <div id="modal">
-          <button>&times;</button>
-          <ul id="score-list"></ul>
         </div>
       </section>
     </main>

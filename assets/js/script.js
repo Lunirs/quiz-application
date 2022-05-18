@@ -18,7 +18,12 @@ var secondCBtnEl = document.getElementById("a2");
 var thirdCBtnEl = document.getElementById("a3");
 var fourthCBtnEl = document.getElementById("a4");
 var finalScoreEl = document.getElementById("final-score");
-
+var nameInputEl = document.getElementById("names");
+var highscoreListEl = document.getElementById("score-list");
+var highscoreBtnEl = document.getElementById("modal-show");
+var closeHighscoreBtnEl = document.getElementById("close-modal");
+var modalEl = document.getElementById("modal");
+var playAgainBtnEl = document.getElementById("play-again-btn");
 // Data States
 
 var timeLeft = 120;
@@ -115,20 +120,45 @@ var ansCheck = function (event) {
   }
 
   console.log(event.target.value);
-
-  var gameOver = function () {
-    clearInterval(timer);
-    scorePageEl.removeAttribute("class", "hidden");
-    testPageEl.setAttribute("class", "hidden");
-    finalScoreEl.textContent = score + " with " + timeLeft + " s remaining!";
-  };
 };
 
-var storeScore = function () {};
+var gameOver = function () {
+  clearInterval(timer);
+  scorePageEl.removeAttribute("class", "hidden");
+  testPageEl.setAttribute("class", "hidden");
+  finalScoreEl.textContent = score + " with " + timeLeft + " s remaining!";
+};
+
+var storeScore = function (event) {
+  event.preventDefault();
+
+  var finalScores = {
+    name: nameInputEl.value.trim(),
+    points: score,
+  };
+  console.log(finalScores.name);
+  console.log(finalScores.points);
+  var localStorageAdd = function (newScore) {
+    var highScoreArray = JSON.parse(localStorage.getItem("finalScores")) || [];
+    highScoreArray.push(newScore);
+    localStorage.setItem("finalScores", JSON.stringify(highScoreArray));
+
+    getScore();
+  };
+  localStorageAdd(finalScores.push);
+};
 
 var resetScore = function () {};
 
-function getScore() {}
+function getScore() {
+  var scoreData = JSON.parse(localStorage.getItem("finalScores"));
+  scoreData.forEach(function (item) {
+    var listEl = document.createElement("li");
+    listEl.textContent = `Name: ${item.name} Score: ${item.points}`;
+    listEl.setAttribute("class", "leaderboard");
+    highscoreListEl.appendChild(list);
+  });
+}
 
 //User Interactions
 
@@ -140,6 +170,19 @@ submitBtnEl.addEventListener("click", storeScore);
 
 answerEl.addEventListener("click", ansCheck);
 
+highscoreBtnEl.addEventListener("click", function () {
+  modalEl.removeAttribute("class", "hidden");
+});
+closeHighscoreBtnEl.addEventListener("click", function () {
+  modalEl.setAttribute("class", "hidden");
+});
+
+playAgainBtnEl.addEventListener("click", function () {
+  window.location.reload();
+});
+//Initialization
+
+// init();
 // Start button that runs the quiz
 // Need start quiz function
 // When button is pressed, timer starts, and quiz questions are displayed
