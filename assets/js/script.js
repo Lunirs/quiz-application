@@ -1,3 +1,60 @@
+// Dependencies
+
+var startBtnEl = document.getElementById("startbtn");
+var submitBtnEl = document.getElementById("submitbtn");
+var resetBtnEl = document.getElementById("resetbtn");
+//use this to add hide class to this
+var startPageEl = document.getElementById("start-page");
+//use this to add/ remove the hide class
+var testPageEl = document.getElementById("question-page");
+//use this to add/remove hide class
+var scorePageEl = document.getElementById("score-page");
+var timerEl = document.getElementById("timer");
+var scoreEl = document.getElementById("score");
+var questionEl = document.getElementById("question");
+var answerEl = document.getElementById("answer");
+
+//Functions
+
+var quizStart = function () {
+  countdown();
+};
+
+var countdown = function () {
+  timer = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = "Time Left: " + timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      gameOver();
+    }
+  }, 1000);
+};
+
+var init = function () {
+  getScore();
+};
+
+var renderQ = function () {};
+
+var gameOver = function () {};
+
+var storeScore = function () {};
+
+var resetScore = function () {};
+
+function getScore() {}
+
+//User Interactions
+
+startBtnEl.addEventListener("click", quizStart);
+
+submitBtnEl.addEventListener("click", storeScore);
+
+// resetBtnEl.addEventListener("click", resetScore);
+
+answerEl.addEventListener("click", ansCheck);
+
 // Start button that runs the quiz
 // Need start quiz function
 // When button is pressed, timer starts, and quiz questions are displayed
