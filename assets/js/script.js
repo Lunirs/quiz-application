@@ -14,6 +14,50 @@ var scoreEl = document.getElementById("score");
 var questionEl = document.getElementById("question");
 var answerEl = document.getElementById("answer");
 
+// Data States
+
+var timeLeft = 120;
+var qIndex = 0;
+var timer;
+var score = 0;
+var testBank = [
+  {
+    q: "Question 1",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 2",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 3",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 4",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 5",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 6",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+  {
+    q: "Question 7",
+    c: ["a1", "a2", "a3", "a4"],
+    a: "a1",
+  },
+];
+
 //Functions
 
 var quizStart = function () {
