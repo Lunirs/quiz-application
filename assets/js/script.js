@@ -26,45 +26,55 @@ var modalEl = document.getElementById("modal");
 var playAgainBtnEl = document.getElementById("play-again-btn");
 // Data States
 
-var timeLeft = 120;
+var timeLeft = 100;
 var qIndex = 0;
 var timer;
 var score = 0;
 var testBank = [
   {
-    q: "Question 1",
-    c: ["a1", "a2", "a3", "a4"],
+    q: "Which of the following signifies strictly equal to?",
+    c: ["===", "==", "!==", "!="],
     a: "a1",
   },
   {
-    q: "Question 2",
-    c: ["a1", "a2", "a3", "a4"],
+    q: "What does CSS stand for?",
+    c: [
+      "Casual Styling Sheet",
+      "Cascading Sick Styles",
+      "Cascading Style Sheet",
+      "Cool Style Sheet",
+    ],
+    a: "a3",
+  },
+  {
+    q: "Which of these is a JSON method?",
+    c: [".querySelector", ".parse()", ".textContent", ".getElementById"],
+    a: "a2",
+  },
+  {
+    q: "Which of the following refers place data resides on your local device?",
+    c: ["Storage", "Hard Drive", "Local Storage", "External Storage"],
+    a: "a3",
+  },
+  {
+    q: "Which CSS style do we use to round out boxes?",
+    c: ["border-radius", "box-shadow", "box-rounded", "skew"],
     a: "a1",
   },
   {
-    q: "Question 3",
-    c: ["a1", "a2", "a3", "a4"],
-    a: "a1",
+    q: "Where do we put our script tags to link our javascript file?",
+    c: [
+      "At the footer",
+      "Anywhere",
+      "Right before the body's closing tag",
+      "In the Head Tag",
+    ],
+    a: "a3",
   },
   {
-    q: "Question 4",
-    c: ["a1", "a2", "a3", "a4"],
-    a: "a1",
-  },
-  {
-    q: "Question 5",
-    c: ["a1", "a2", "a3", "a4"],
-    a: "a1",
-  },
-  {
-    q: "Question 6",
-    c: ["a1", "a2", "a3", "a4"],
-    a: "a1",
-  },
-  {
-    q: "Question 7",
-    c: ["a1", "a2", "a3", "a4"],
-    a: "a1",
+    q: "How do you target a class residing in your HTML code?",
+    c: [".select", ".selectQuery()", ".target", ".querySelector()"],
+    a: "a4",
   },
 ];
 
