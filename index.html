@@ -4,7 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Test your js knowledge by taking this Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div id="high-score">
+        <button id="modal-show">High Scores</button>
+      </div>
+      <div id="timer">Time Left: 120</div>
+      <div id="score">Score: 0</div>
+    </header>
+
+    <main>
+      <section id="container">
+        <h1>Quiz Game!</h1>
+        <p>Quiz instructions</p>
+        <div id="start-page">
+          <button id="startbtn">Click Here to Start the Quiz</button>
+        </div>
+        <div id="question-page" class="hidden">
+          <h3 id="question"></h3>
+          <div id="answer">
+            <button id="a1" value="a1"></button>
+            <button id="a2" value="a2"></button>
+            <button id="a3" value="a3"></button>
+            <button id="a4" value="a4"></button>
+          </div>
+        </div>
+        <div id="score-page" class="hidden">
+          <h4>Your Final Score is: <span id="final-score"></span></h4>
+          <input type="text" id="names" name="name" placeholder="Name" />
+          <button id="submitbtn">Submit</button>
+          <br />
+          <br />
+          <button id="play-again-btn">Play Again</button>
+        </div>
+
+        <div id="modal">
+          <button>&times;</button>
+          <ul id="score-list"></ul>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
