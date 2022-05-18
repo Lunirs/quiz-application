@@ -130,33 +130,34 @@ var gameOver = function () {
 };
 
 var storeScore = function (event) {
-  event.preventDefault();
-
-  var finalScores = {
-    name: nameInputEl.value.trim(),
-    points: score,
-  };
-  console.log(finalScores.name);
-  console.log(finalScores.points);
-  var localStorageAdd = function (newScore) {
-    var highScoreArray = JSON.parse(localStorage.getItem("finalScores")) || [];
-    highScoreArray.push(newScore);
-    localStorage.setItem("finalScores", JSON.stringify(highScoreArray));
-
-    getScore();
-  };
-  localStorageAdd(finalScores.push);
+  var userName = nameInputEl.value.trim();
+  if (userName) {
+    var finalScore = JSON.parse(localStorage.getItem("finalScore")) || [];
+    var currentScore = {
+      userName: userName,
+      points: score,
+      time: timeLeft,
+    };
+    finalScore.push(currentScore);
+    localStorage.setItem("finalScore", JSON.stringify(finalScore));
+  }
 };
 
 var resetScore = function () {};
 
 function getScore() {
-  var scoreData = JSON.parse(localStorage.getItem("finalScores"));
-  scoreData.forEach(function (item) {
+  var finalScore = JSON.parse(localStorage.getItem("finalScores")) || [];
+
+  finalScore.forEach(function (item) {
     var listEl = document.createElement("li");
-    listEl.textContent = `Name: ${item.name} Score: ${item.points}`;
-    listEl.setAttribute("class", "leaderboard");
-    highscoreListEl.appendChild(list);
+    listEl.textContent =
+      "Name: " +
+      item.userName +
+      " Score: " +
+      item.points +
+      " Time Left " +
+      item.time;
+    highscoreListEl.appendChild(listEl);
   });
 }
 
@@ -182,7 +183,7 @@ playAgainBtnEl.addEventListener("click", function () {
 });
 //Initialization
 
-// init();
+init();
 // Start button that runs the quiz
 // Need start quiz function
 // When button is pressed, timer starts, and quiz questions are displayed
