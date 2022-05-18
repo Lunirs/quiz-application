@@ -143,11 +143,14 @@ var storeScore = function (event) {
   }
 };
 
-var resetScore = function () {};
+var resetScore = function () {
+  localStorage.removeItem("finalScore");
+  location.reload();
+};
 
 function getScore() {
-  var finalScore = JSON.parse(localStorage.getItem("finalScores")) || [];
-
+  var finalScore = JSON.parse(localStorage.getItem("finalScore")) || [];
+  console.log(finalScore);
   finalScore.forEach(function (item) {
     var listEl = document.createElement("li");
     listEl.textContent =
@@ -155,7 +158,7 @@ function getScore() {
       item.userName +
       " Score: " +
       item.points +
-      " Time Left " +
+      " Time Left: " +
       item.time;
     highscoreListEl.appendChild(listEl);
   });
@@ -167,7 +170,7 @@ startBtnEl.addEventListener("click", quizStart);
 
 submitBtnEl.addEventListener("click", storeScore);
 
-// resetBtnEl.addEventListener("click", resetScore);
+resetBtnEl.addEventListener("click", resetScore);
 
 answerEl.addEventListener("click", ansCheck);
 
@@ -179,7 +182,7 @@ closeHighscoreBtnEl.addEventListener("click", function () {
 });
 
 playAgainBtnEl.addEventListener("click", function () {
-  window.location.reload();
+  location.reload();
 });
 //Initialization
 

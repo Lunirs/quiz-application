@@ -152,8 +152,6 @@ h4 {
   background-color: rgba(0, 0, 0, 0.4);
 }
 #close-modal {
-  position: relative;
-  left: 100px;
   font-size: 40px;
   color: ivory;
   background-color: #2b2b2f;
@@ -165,6 +163,7 @@ h4 {
   align-self: center;
   border: none;
   cursor: grab;
+  margin-left: 40px;
 }
 #modal-container {
   display: flex;
@@ -180,6 +179,26 @@ h4 {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 15px ivory;
+}
+
+li {
+  padding-top: 40px;
+}
+
+#resetbtn {
+  font-size: 20px;
+  padding: 20px;
+  margin-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  right: -20px;
+  border-radius: 20px;
+  background-color: ivory;
+  color: #2b2b2f;
+  border: solid 1px #2b2b2f;
+  box-shadow: 0 0 5px ivory;
+  font-weight: 900;
 }
 .hidden {
   display: none;
