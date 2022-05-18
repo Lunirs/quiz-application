@@ -13,6 +13,11 @@ var timerEl = document.getElementById("timer");
 var scoreEl = document.getElementById("score");
 var questionEl = document.getElementById("question");
 var answerEl = document.getElementById("answer");
+var firstCBtnEl = document.getElementById("a1");
+var secondCBtnEl = document.getElementById("a2");
+var thirdCBtnEl = document.getElementById("a3");
+var fourthCBtnEl = document.getElementById("a4");
+var finalScoreEl = document.getElementById("final-score");
 
 // Data States
 
