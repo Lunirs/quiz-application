@@ -68,8 +68,8 @@ section p {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  right: -10px;
+  position: static;
+  margin-left: 200px;
 }
 
 h3 {
@@ -210,4 +210,10 @@ li {
 }
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 940px) {
+  #startbtn {
+    margin-left: 30px;
+  }
 }
